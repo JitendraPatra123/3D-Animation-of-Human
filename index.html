@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Human Scan</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <canvas id="canvas3d"></canvas>
+  </div>
+
+  <script type="module">
+    const fileName = "YOUR_SPLINE_FILE_ID"; // Replace with your Spline scene ID
+    import { Application } from "https://esm.sh/@splinetool/runtime";
+
+    const canvas = document.getElementById('canvas3d');
+    const app = new Application(canvas);
+
+    app.load(`https://prod.spline.design/${fileName}/scene.splinecode`);
+  </script>
+</body>
+</html>
